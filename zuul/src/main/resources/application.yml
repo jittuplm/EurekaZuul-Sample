@@ -1,0 +1,24 @@
+zuul:
+  prefix: /api
+  routes:
+    hello-server:
+      path: /server/**
+      serviceId: ProducerService
+    hello-client:
+      path: /client/**
+      serviceId: ConsumerService
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+  instance:
+    hostname: localhost
+server:
+  port: 9092
+
+spring:
+  application:
+    name: zuul-service
